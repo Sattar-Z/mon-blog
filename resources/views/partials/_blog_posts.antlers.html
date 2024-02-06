@@ -1,0 +1,332 @@
+<!-- BLOG POSTS LISTING
+			============================================= -->
+<section id="blog-page" class="pb-60 inner-page-hero blog-page-section">
+    <div class="container">
+        {{ collection:blogs }}
+        {{ if star_content }}
+        <!-- WIDE BLOG POST -->
+        <div class="blog-post wide-post wow fadeInUp">
+            <div class="row d-flex align-items-center">
+                <!-- BLOG POST IMAGE -->
+                <div class="col-md-6">
+                    <div class="blog-post-img">
+                        <img
+                            class="img-fluid r-16"
+                            src="{{ featured_image }}"
+                            alt="{{ featured_image:alt }}"
+                        />
+                    </div>
+                </div>
+
+                <!-- BLOG POST TEXT -->
+                <div class="col-md-6">
+                    <div class="blog-post-txt">
+                        {{ categories }}
+
+                        <!-- Post Tag -->
+                        <a href="{{ url }}" class="post-tag color--green-500"
+                            >{{ title }}</a
+                        >
+                        {{ /categories }}
+
+                        <!-- Post Link -->
+                        <h3 class="s-38 w-700">
+                            <a href="{{ url }}">{{ title }} </a>
+                        </h3>
+
+                        <!-- Text -->
+                        <p>{{ star_content }}</p>
+
+                        <!-- Post Meta -->
+                        <div class="blog-post-meta mt-30">
+                            <ul class="post-meta-list ico-10">
+                                <li>
+                                    <p class="w-500">By {{ author:name }}</p>
+                                </li>
+                                <li class="meta-list-divider">
+                                    <p>
+                                        <span class="flaticon-minus"></span>
+                                    </p>
+                                </li>
+                                <li><p>{{ date | format: "d/m/Y" }}</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- END BLOG POST TEXT -->
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- END WIDE BLOG POST -->
+        {{ /if }}
+        {{ /collection:blogs }}
+
+        <!-- POSTS WRAPPER -->
+
+        <div class="posts-wrapper">
+            <div class="row">
+                <!-- BLOG POST #1 -->
+                {{ collection:blogs paginate="3" as="posts" }} {{ posts }}
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-post mb-40 wow fadeInUp clearfix">
+                        <!-- BLOG POST IMAGE -->
+                        <div class="blog-post-img mb-35">
+                            <img
+                                class="img-fluid r-16"
+                                src="{{ featured_image }}"
+                                alt="{{ featured_image:alt }}"
+                            />
+                        </div>
+
+                        <!-- BLOG POST TEXT -->
+                        <div class="blog-post-txt">
+                            {{ categories }}
+                            <!-- Post Tag -->
+                            <a
+                                href="{{ url }}"
+                                class="post-tag color--green-500"
+                                >{{ title }}</a
+                            >
+                            {{ /categories }}
+                            <!-- Post Link -->
+                            <h6 class="s-20 w-700">
+                                <a href="{{ url }}">{{ title }} </a>
+                            </h6>
+
+                            <!-- Text -->
+                            <p>{{ blog_content }}</p>
+
+                            <!-- Post Meta -->
+                            <div class="blog-post-meta mt-20">
+                                <ul class="post-meta-list ico-10">
+                                    <li>
+                                        <p class="p-sm w-500">
+                                            By {{ author:name }}
+                                        </p>
+                                    </li>
+
+                                    <li class="meta-list-divider">
+                                        <p>
+                                            <span class="flaticon-minus"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="p-sm">
+                                            {{ date | format: "d/m/Y" }}
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- END BLOG POST TEXT -->
+                    </div>
+                </div>
+                {{ /posts }}
+                <!-- PAGE PAGINATION
+                    ============================================= -->
+                <div class="pb-100 page-pagination theme-pagination">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul
+                                        class="pagination ico-20 justify-content-center"
+                                    >
+                                        {{ paginate }}
+                                        <li
+                                            class="page-item {{ if not prev_page }}disabled{{ /if }}"
+                                        >
+                                            <a
+                                                class="page-link"
+                                                href="{{ prev_page }}"
+                                                tabindex="-1"
+                                            >
+                                                <span
+                                                    class="flaticon-back"
+                                                ></span>
+                                            </a>
+                                        </li>
+
+                                        {{ links:segments }} {{ first }} {{ if
+                                        page == current_page }}
+                                        <li class="page-item active">
+                                            <a
+                                                class="page-link"
+                                                href="{{ url }}"
+                                                >{{ page }}</a
+                                            >
+                                        </li>
+                                        {{ else }}
+                                        <li class="page-item">
+                                            <a
+                                                class="page-link"
+                                                href="{{ url }}"
+                                                >{{ page }}</a
+                                            >
+                                        </li>
+                                        {{ /if }} {{ /first }} {{ if slider }}
+                                        <li class="disabled">
+                                            <span class="page-link">...</span>
+                                        </li>
+                                        {{ /if }} {{ slider }} {{ if page ==
+                                        current_page }}
+                                        <li class="page-item active">
+                                            <a
+                                                class="page-link"
+                                                href="{{ url }}"
+                                                >{{ page }}</a
+                                            >
+                                        </li>
+                                        {{ else }}
+                                        <li>
+                                            <a
+                                                class="page-link"
+                                                href="{{ url }}"
+                                                >{{ page }}</a
+                                            >
+                                        </li>
+                                        {{ /if }} {{ /slider }} {{ if slider ||
+                                        (!slider && last) }}
+                                        <li class="disabled">
+                                            <span class="page-link">...</span>
+                                        </li>
+                                        {{ /if }} {{ last }} {{ if page ==
+                                        current_page }}
+                                        <li class="active">
+                                            <span class="page-link"
+                                                >{{ page }}</span
+                                            >
+                                        </li>
+                                        {{ else }}
+                                        <li>
+                                            <a href="{{ url }}">{{ page }}</a>
+                                        </li>
+                                        {{ /if }} {{ /last }} {{ /links:segments
+                                        }}
+
+                                        <li
+                                            class="page-item {{ if not next_page }}disabled{{ /if }}"
+                                        >
+                                            <a
+                                                class="page-link"
+                                                href="{{ next_page }}"
+                                                aria-label="Next"
+                                            >
+                                                <span
+                                                    class="flaticon-next"
+                                                ></span>
+                                            </a>
+                                        </li>
+                                        {{ /paginate }}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- End row -->
+                    </div>
+                    <!-- End container -->
+                </div>
+                <!-- END PAGE PAGINATION -->
+                {{ /collection:blogs }}
+                <!-- END BLOG POST #1 -->
+            </div>
+        </div>
+        <!-- END POSTS WRAPPER -->
+
+        <!-- SQUARE BLOG POST -->
+        <div class="blog-post square-post">
+            <div class="row">
+                <div class="col">
+                    <!-- SQUARE BLOG POST WRAPPER -->
+                    <div
+                        class="square-post-wrapper bg--black-400 block-shadow r-16 wow fadeInUp"
+                    >
+                        <div class="row d-flex align-items-center">
+                            <!-- BLOG POST TEXT -->
+                            <div class="col-md-6 order-last order-md-2">
+                                <div class="blog-post-txt color--white">
+                                    <!-- Post Tag -->
+                                    <span class="post-tag color--pink-400"
+                                        >Video Tutorials</span
+                                    >
+
+                                    <!-- Post Link -->
+                                    <h4 class="s-34 w-700 mb-20">
+                                        <a href="single-post.html"
+                                            >Lipsum sodales sapien Martex
+                                            aliquet blandit augue gravida
+                                            posuere
+                                        </a>
+                                    </h4>
+
+                                    <!-- Text -->
+                                    <p>
+                                        Aliqum mullam blandit vitae and tempor
+                                        sapien and donec lipsum gravida porta
+                                        undo velna dolor libero risus aliquet
+                                        tempus posuere vitae tempor
+                                    </p>
+
+                                    <!-- Post Meta -->
+                                    <div class="blog-post-meta mt-30">
+                                        <ul class="post-meta-list ico-10">
+                                            <li>
+                                                <p class="w-500">
+                                                    By Martex Team
+                                                </p>
+                                            </li>
+                                            <li class="meta-list-divider">
+                                                <p>
+                                                    <span
+                                                        class="flaticon-minus"
+                                                    ></span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>Feb 12, 2023</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BLOG POST IMAGE -->
+                            <div class="col-md-6 order-first order-md-2">
+                                <div class="blog-post-img video-preview">
+                                    <!-- Play Icon -->
+                                    <a
+                                        class="video-popup1"
+                                        href="https://www.youtube.com/embed/SZEflIVnhH8"
+                                    >
+                                        <div
+                                            class="video-btn video-btn-xl bg--pink-400 ico-90"
+                                        >
+                                            <div class="video-block-wrapper">
+                                                <span
+                                                    class="flaticon-play-button"
+                                                ></span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <!-- Preview Image -->
+                                    <img
+                                        class="img-fluid"
+                                        src="{{ app.base_url }}/assets/images/blog/post-10-img.jpg"
+                                        alt="video-preview"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End row -->
+                    </div>
+                    <!-- END SQUARE BLOG POST WRAPPER -->
+                </div>
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- END SQUARE BLOG POST -->
+    </div>
+    <!-- End container -->
+</section>
+<!-- END BLOG POSTS LISTING -->

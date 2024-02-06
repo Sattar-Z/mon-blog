@@ -1,0 +1,78 @@
+<section id="blog-page" class="pb-60 inner-page-hero blog-page-section">
+    <!-- SECTION TITLE -->
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-9">
+            <div class="section-title mb-70">
+                <!-- Title -->
+                <h2 class="s-52 w-700">{{ title }}</h2>
+
+                <!-- Text -->
+                <p class="s-21 color--grey">{{ content }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {{ entries }}
+        <!-- WIDE BLOG POST -->
+        <div class="blog-post wide-post wow fadeInUp">
+            <div class="row d-flex align-items-center">
+                <!-- BLOG POST IMAGE -->
+                <div class="col-md-6">
+                    <div class="blog-post-img">
+                        <img
+                            class="img-fluid r-16"
+                            src="{{ featured_image }}"
+                            alt="{{ featured_image:alt }}"
+                        />
+                    </div>
+                </div>
+
+                <!-- BLOG POST TEXT -->
+                <div class="col-md-6">
+                    <div class="blog-post-txt">
+                        {{ categories }}
+
+                        <!-- Post Tag -->
+                        <a href="{{ url }}" class="post-tag color--green-500"
+                            >{{ title }}</a
+                        >
+                        {{ /categories }}
+
+                        <!-- Post Link -->
+                        <h3 class="s-38 w-700">
+                            <a href="{{ url }}">{{ title }} </a>
+                        </h3>
+
+                        <!-- Text -->
+                        <p>{{ blog_content }}</p>
+
+                        <!-- Post Meta -->
+                        <div class="blog-post-meta mt-30">
+                            <ul class="post-meta-list ico-10">
+                                <li>
+                                    <p class="w-500">By {{ author:name }}</p>
+                                </li>
+                                <li class="meta-list-divider">
+                                    <p>
+                                        <span class="flaticon-minus"></span>
+                                    </p>
+                                </li>
+                                <li><p>{{ date | format: "d/m/Y" }}</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- END BLOG POST TEXT -->
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- END WIDE BLOG POST -->
+        {{ /entries}}
+          <!-- SIGN UP BUTTON -->
+          <li class="nl-simple" aria-haspopup="true" style="text-align: center;">
+            <a href="../categories" class="btn r-04 btn--theme hover--theme last-link" style="font-size: 20px; display: inline-block;">More Categories</a>
+        </li>
+        
+    </div>
+</section>

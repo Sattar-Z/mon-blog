@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ site:short_locale }}">
+    <!--[if lt IE 7]><html class="ie ie6" lang="en"> <![endif]-->
+    <!--[if IE 7]><html class="ie ie7" lang="en"> <![endif]-->
+    <!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ meta_title?? title }}</title>
+        <meta name="description" content="{{ meta_description }}" />
+
+        {{ partial:head }} {{ vite
+        src="resources/js/site.js|resources/css/site.css" }}
+    </head>
+    <body class="bg-gray-100 font-sans leading-normal text-gray-800">
+        <!-- PRELOADER SPINNER
+            ============================================= -->
+        {{ partial:preload }}
+        <div id="page" class="page font--jakarta">
+            <!-- PAGE CONTENT
+		============================================= -->
+            <!-- HEADER
+			============================================= -->
+            {{ partial:header }}
+            <!-- END HEADER -->
+
+            <div
+                class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center"
+            >
+                {{ template_content }}
+            </div>
+
+            <!-- FOOTER-3
+			============================================= -->
+            {{ partial:footer }}
+            <!-- END FOOTER-3 -->
+        </div>
+        <!-- END PAGE CONTENT -->
+        {{ partial:script }}
+    </body>
+</html>

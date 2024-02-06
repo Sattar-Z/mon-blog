@@ -1,0 +1,24 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This is all you. */
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* Adjust this value to match your desired aspect ratio (height/width) */
+}
+.author-data {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+}
+.icon-wrapper {
+    width: 24px; /* Set your desired width */
+    height: 24px; /* Set your desired height */
+    margin-right: 10px;
+}
+
+/* Additional styling if needed */
+.icon-wrapper svg {
+    fill: currentColor; /* Ensure the icon inherits the color from its parent element */
+}
