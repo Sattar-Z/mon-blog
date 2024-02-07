@@ -9,7 +9,13 @@
                                 <!--  SINGLE POST TITLE -->
                                 <div class="single-post-title text-center">
                                     <!-- Post Tag -->
-                                    <span class="post-tag color--green-400">Community</span>
+                                    {{ categories }}
+
+                                    <!-- Post Tag -->
+                                    <a href="{{ url }}" class="post-tag color--green-500"
+                                        >{{ title }}</a
+                                    >
+                                    {{ /categories }}
             
                                     <!-- Title -->
                                     <h2 class="s-46 w-700">{{ title }}</h2>

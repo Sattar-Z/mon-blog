@@ -1,1 +1,7 @@
 title: 'PRODUCT NEWS'
+content: 'Stay informed with the latest updates and releases in the world of products. From innovative gadgets to groundbreaking inventions, explore new trends and advancements that are shaping the future of consumer goods. Discover insights, reviews, and exclusive launches to stay ahead of the curve in product innovation.'
+icon:
+  code: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>'
+  mode: htmlmixed
+updated_by: cdd1c45f-9b2a-4bca-8ad4-435d6cb687bd
+updated_at: 1707294508
